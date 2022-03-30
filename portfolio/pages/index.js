@@ -4,6 +4,7 @@ import { DocumentTextIcon, MailIcon } from '@heroicons/react/outline'
 // import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import IconTextLink from '../components/iconTextLink'
+import IconLink from '../components/iconLink'
 
 export default function Home() {
   return (
@@ -26,10 +27,13 @@ export default function Home() {
             <DocumentTextIcon />
           </IconTextLink>
 
-          {/* <a href="mailto:contact@franck-g.fr" className={styles.iconLink}>
-            <p>Me contacter</p>
+        </div>
+
+        <div className='mt-10 flex flex-row gap-3 items-center' id='iconLinks'>
+
+          <IconLink link={"mailto:gutmann.franck@outlook.fr"}>
             <MailIcon />
-          </a> */}
+          </IconLink>
 
         </div>
 

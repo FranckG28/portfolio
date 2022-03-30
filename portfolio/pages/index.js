@@ -3,6 +3,7 @@ import { DocumentTextIcon, MailIcon } from '@heroicons/react/outline'
 
 // import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import IconTextLink from '../components/iconTextLink'
 
 export default function Home() {
   return (
@@ -20,21 +21,17 @@ export default function Home() {
         <h4>Étudiant en informatique</h4>
 
         <div className="mt-10 flex flex-col gap-3 items-center" id="links">
-          <a href="https://drive.google.com/file/d/1MzYGLruaO9yYWd2MqmMlJoadk1T2ZM6H/view?usp=sharing" target={'_blank'} rel="noreferrer" className={styles.iconLink}>
-            <p>Mon CV</p>
-            <DocumentTextIcon />
-          </a>
 
-          <a href="mailto:contact@franck-g.fr" className={styles.iconLink}>
+          <IconTextLink text={"Mon CV"} link="https://drive.google.com/file/d/1MzYGLruaO9yYWd2MqmMlJoadk1T2ZM6H/view?usp=sharing">
+            <DocumentTextIcon />
+          </IconTextLink>
+
+          {/* <a href="mailto:contact@franck-g.fr" className={styles.iconLink}>
             <p>Me contacter</p>
             <MailIcon />
-          </a>
+          </a> */}
 
         </div>
-
-        <section class="section" id="projects">
-
-        </section>
 
       </main>
 

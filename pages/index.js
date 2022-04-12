@@ -1,17 +1,12 @@
 import Head from "next/head";
-
-import { DocumentTextIcon, MailIcon } from "@heroicons/react/outline";
-
-import IconTextLink from "../components/iconTextLink";
-import IconLink from "../components/iconLink";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex-1">
+    <>
       <Head>
-        <title>Franck G.</title>
-        <meta name="description" content="Franck GUTMANN" />
+        <title>Franck G. - Acccueil</title>
+        {/* <meta name="description" content="Franck GUTMANN" /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -22,14 +17,14 @@ export default function Home() {
 
         <h3>Homepage</h3>
 
-        <Link href={"/projects"}>
+        <Link href="/projects">
           <a>Projets</a>
         </Link>
 
-        <Link href={"/experiences"}>
+        <Link href="/experiences">
           <a>Expériences</a>
         </Link>
       </main>
-    </div>
+    </>
   );
 }

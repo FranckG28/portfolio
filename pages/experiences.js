@@ -1,10 +1,18 @@
 import Link from "next/link";
+import Head from "next/head";
 
-export default function ExperiencesPage() {
+export default function Experiences() {
   return (
-    <main>
-      <h1>Experiences</h1>
-      <Link href={"/"}>Retour</Link>
-    </main>
+    <>
+      <Head>
+        <title>Franck G. - Expériences</title>
+      </Head>
+      <h1>Expériences</h1>
+      <h2>
+        <Link href="/">
+          <a>Retour</a>
+        </Link>
+      </h2>
+    </>
   );
 }

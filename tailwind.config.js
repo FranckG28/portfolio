@@ -4,10 +4,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      'sans': ['Lexend', 'sans-serif']
-    },
     extend: {},
   },
   plugins: [],
-}
+};

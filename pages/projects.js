@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import ProjectItem from "../components/projectItem";
 
 export default function Projects({ projects, error }) {
   return (
@@ -16,9 +17,9 @@ export default function Projects({ projects, error }) {
         ) : (
           <div>
             <p>List : </p>
-            <ul>
+            <ul className="grid grid-cols-4 gap-3 ">
               {projects.data.map((element) => {
-                return <li key={element.id}>{element.attributes.title}</li>;
+                return <ProjectItem key={element.id} project={element} />;
               })}
             </ul>
           </div>

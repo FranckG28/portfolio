@@ -7,8 +7,8 @@ export default function Home() {
     <Layout>
       <Head>
         <title>Franck G. - Acccueil</title>
-        {/* <meta name="description" content="Franck GUTMANN" /> */}
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Franck GUTMANN Porftfolio" />
       </Head>
 
       <main className="flex flex-col justify-center min-h-screen items-center gap-5">

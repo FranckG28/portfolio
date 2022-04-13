@@ -6,7 +6,7 @@ export default function ProjectItem({ project }) {
     <article className="bg-gray-100 p-5 rounded-xl">
       {/* <Image src={project.attributes.images} width={200} /> */}
       <h3 className="bold text-xl text-blue-500">
-        <Link href={"#"}>
+        <Link href={"/project/" + project.id}>
           <a>{project.attributes.title}</a>
         </Link>
       </h3>

@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 import ProjectItem from "../components/projectItem";
 
-import { fetcher } from "../lib/data";
+import { getProjects } from "../lib/projectsLib";
 
 export default function Projects({ projects, error }) {
   return (
@@ -21,7 +21,7 @@ export default function Projects({ projects, error }) {
 
 export async function getStaticProps() {
   try {
-    const projects = await fetcher("projects");
+    const projects = await getProjects();
 
     return { props: { projects } };
   } catch (error) {

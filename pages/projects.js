@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
+import Layout from "../components/layout";
 import ProjectItem from "../components/projectItem";
 
 import { fetcher } from "../lib/data";
 
 export default function Projects({ projects, error }) {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Franck G. - Projets</title>
       </Head>
@@ -31,7 +32,7 @@ export default function Projects({ projects, error }) {
           <a>Retour</a>
         </Link>
       </main>
-    </>
+    </Layout>
   );
 }
 

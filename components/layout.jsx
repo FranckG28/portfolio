@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 const siteTitle = "Franck G.";
 
 export function makeTitle(pageTitle) {
@@ -5,5 +7,13 @@ export function makeTitle(pageTitle) {
 }
 
 export default function Layout({ children }) {
-  return <div className="container mx-auto py-10">{children}</div>;
+  return (
+    <div className="container mx-auto py-10">
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Franck GUTMANN Portfolio" />
+      </Head>
+      {children}
+    </div>
+  );
 }

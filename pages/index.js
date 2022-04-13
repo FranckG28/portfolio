@@ -1,22 +1,19 @@
 import Head from "next/head";
 import Link from "next/link";
-import Layout from "../components/layout";
+import Layout, { makeTitle } from "../components/layout";
+import { PageTitle } from "../components/typo";
+
+const pageTitle = "Accueil";
 
 export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Franck G. - Acccueil</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Franck GUTMANN Porftfolio" />
+        <title>{makeTitle(pageTitle)}l</title>
       </Head>
 
-      <main className="flex flex-col justify-center min-h-screen items-center gap-5">
-        <h1>
-          <span className="font-normal">FRANCK</span> GUTMANN
-        </h1>
-
-        <h3>Homepage</h3>
+      <main className="grid gap-5">
+        <PageTitle>{pageTitle}</PageTitle>
 
         <Link href="/projects">
           <a>Projets</a>

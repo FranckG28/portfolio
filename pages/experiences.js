@@ -11,10 +11,12 @@ export default function Experiences() {
       <Head>
         <title>{makeTitle(pageTitle)}</title>
       </Head>
-      <PageTitle>{pageTitle}</PageTitle>
-      <Link href="/">
-        <a>Retour</a>
-      </Link>
+      <main>
+        <PageTitle>{pageTitle}</PageTitle>
+        <Link href="/">
+          <a>Retour</a>
+        </Link>
+      </main>
     </Layout>
   );
 }

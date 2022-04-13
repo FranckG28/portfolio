@@ -2,6 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 import ProjectItem from "../components/projectItem";
 
+import { fetcher } from "../lib/data";
+
 export default function Projects({ projects, error }) {
   return (
     <>
@@ -34,28 +36,8 @@ export default function Projects({ projects, error }) {
 }
 
 export async function getStaticProps() {
-  let token = process.env.API_TOKEN;
-
-  const checkStatus = (resp) => {
-    if (resp.status >= 200 && resp.status < 300) {
-      return resp;
-    } else {
-      throw resp;
-    }
-  };
-
-  const parseJson = (resp) => (resp.json ? resp.json() : resp);
-
   try {
-    const projects = await fetch("http://localhost:1338/api/projects", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "bearer " + token,
-      },
-    })
-      .then(checkStatus)
-      .then(parseJson);
+    const projects = await fetcher("projects");
 
     return { props: { projects } };
   } catch (error) {

@@ -1,11 +1,15 @@
 import Layout from "../components/layout";
 import ProjectItem from "../components/projectItem";
+import { PageTitle } from "../components/typo";
 
 import { getProjects } from "../lib/projectsLib";
 
 export default function Projects({ projects, error }) {
+  const pageTitle = "Projets";
+
   return (
-    <Layout title="Projets">
+    <Layout title={pageTitle} navigation={[{ name: "Accueil", path: "/" }]}>
+      <PageTitle>{pageTitle}</PageTitle>
       {error ? (
         <p>{error}</p>
       ) : (

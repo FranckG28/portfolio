@@ -1,12 +1,8 @@
 import tw from "tailwind-styled-components";
 
-export const DateBadge = tw.span`
+export const DateBadge = tw.div`
 
-    rounded-md
-
-    bg-gray-200
-
-    px-4 
-    py-2
+    font-bold
+    text-sm
 
 `;

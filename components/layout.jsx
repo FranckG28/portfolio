@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Breadcrumb from "./breadcrumb";
 import { Button } from "./button";
 import { PageTitle } from "./typo";
 
@@ -9,7 +10,9 @@ export function makeTitle(pageTitle) {
   return siteTitle + " - " + pageTitle;
 }
 
-export default function Layout({ children, home, title }) {
+export default function Layout({ children, navigation, title }) {
+  let nav = navigation || [];
+
   return (
     <div className="container mx-auto py-10">
       <Head>
@@ -18,14 +21,10 @@ export default function Layout({ children, home, title }) {
         <meta name="description" content="Franck GUTMANN Portfolio" />
       </Head>
       <main>
-        {home ? (
-          ""
-        ) : (
-          <Link href="/">
-            <Button>Retour</Button>
-          </Link>
-        )}
-        <PageTitle>{title}</PageTitle>
+        {/* nav */}
+        <p>{nav.length > 0 ? <Breadcrumb nav={nav} /> : ""}</p>
+
+        {/* Content */}
         {children}
       </main>
     </div>

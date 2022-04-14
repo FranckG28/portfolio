@@ -10,18 +10,28 @@ import {
 import Image from "next/image";
 import Button from "../../components/button";
 import { TechnologyBadge } from "../../components/technologyBadge";
+import { PageTitle } from "../../components/typo";
+import { DateBadge } from "../../components/dateBadge";
 
 export default function ProjectDetail({ project }) {
   return (
-    <Layout title={project.attributes.title}>
-      <div className="grid gap-3">
-        <p className="font-bold">
-          {project.attributes.tasks +
-            " • " +
-            makeTeam(project) +
-            " • " +
-            makeDate(project)}
-        </p>
+    <Layout
+      title={project.attributes.title}
+      navigation={[
+        { name: "Accueil", path: "/" },
+        { name: "Projets", path: "/projects" },
+        { name: project.attributes.title },
+      ]}
+    >
+      <div className="grid gap-5">
+        <div className="py-5">
+          <DateBadge>{makeDate(project)}</DateBadge>
+          <PageTitle>{project.attributes.title}</PageTitle>
+
+          <p className="font-light">
+            {project.attributes.tasks + " • " + makeTeam(project)}
+          </p>
+        </div>
 
         <ul className="flex gap-3">
           {project.attributes.technologies.data.map((tech) => {

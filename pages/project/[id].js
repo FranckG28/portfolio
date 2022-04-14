@@ -1,9 +1,12 @@
 import Layout from "../../components/layout";
+import { adress } from "../../lib/fetcher";
 import {
   getProjectData,
   getProjectsIds,
   makeDate,
 } from "../../lib/projectsLib";
+
+import Image from "next/image";
 
 export default function ProjectDetail({ project }) {
   const equipe =
@@ -23,6 +26,19 @@ export default function ProjectDetail({ project }) {
             " • " +
             makeDate(project)}
         </p>
+
+        <div className="grid grid-cols-3">
+          {project.attributes.images.data.map((img) => {
+            return (
+              <Image
+                src={adress + img.attributes.formats.large.url}
+                width={400}
+                height={300}
+                objectFit="cover"
+              />
+            );
+          })}
+        </div>
 
         <p>{project.attributes.description}</p>
         <a href={project.attributes.link}>Visiter</a>

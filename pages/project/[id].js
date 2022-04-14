@@ -4,6 +4,7 @@ import {
   getProjectData,
   getProjectsIds,
   makeDate,
+  makeTeam,
 } from "../../lib/projectsLib";
 
 import Image from "next/image";
@@ -11,20 +12,13 @@ import Button from "../../components/button";
 import { TechnologyBadge } from "../../components/technologyBadge";
 
 export default function ProjectDetail({ project }) {
-  const equipe =
-    project.attributes.team == 1
-      ? "Seul"
-      : "Équipe de " + project.attributes.team;
-
-  // console.log(project);
-
   return (
     <Layout title={project.attributes.title}>
       <div className="grid gap-3">
         <p className="font-bold">
           {project.attributes.tasks +
             " • " +
-            equipe +
+            makeTeam(project) +
             " • " +
             makeDate(project)}
         </p>

@@ -7,6 +7,7 @@ import {
 } from "../../lib/projectsLib";
 
 import Image from "next/image";
+import { TechnologyBadge } from "../../components/technologyBadge";
 
 export default function ProjectDetail({ project }) {
   const equipe =
@@ -14,7 +15,7 @@ export default function ProjectDetail({ project }) {
       ? "Seul"
       : "Équipe de " + project.attributes.team;
 
-  console.log(project);
+  // console.log(project);
 
   return (
     <Layout title={project.attributes.title}>
@@ -26,6 +27,16 @@ export default function ProjectDetail({ project }) {
             " • " +
             makeDate(project)}
         </p>
+
+        <ul className="flex gap-3">
+          {project.attributes.technologies.data.map((tech) => {
+            return (
+              <TechnologyBadge $color={tech.attributes.color} key={tech.id}>
+                <a href={tech.attributes.link}>{tech.attributes.slug}</a>
+              </TechnologyBadge>
+            );
+          })}
+        </ul>
 
         <div className="grid grid-cols-3">
           {project.attributes.images.data.map((img) => {

@@ -8,12 +8,15 @@ export default function Projects({ projects, error }) {
   const pageTitle = "Projets";
 
   return (
-    <Layout title={pageTitle} navigation={[{ name: "Accueil", path: "/" }]}>
+    <Layout
+      title={pageTitle}
+      navigation={[{ name: "Accueil", path: "/" }, { name: "Projets" }]}
+    >
       <PageTitle>{pageTitle}</PageTitle>
       {error ? (
         <p>{error}</p>
       ) : (
-        <ul className="grid grid-cols-4 gap-3 ">
+        <ul className="lg:grid lg:grid-cols-4 gap-3 flex">
           {projects.data.map((element) => {
             return <ProjectItem key={element.id} project={element} />;
           })}

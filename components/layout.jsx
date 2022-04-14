@@ -14,7 +14,7 @@ export default function Layout({ children, navigation, title }) {
   let nav = navigation || [];
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10 px-5">
       <Head>
         <title>{makeTitle(title)}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -22,7 +22,7 @@ export default function Layout({ children, navigation, title }) {
       </Head>
       <main>
         {/* nav */}
-        <p>{nav.length > 0 ? <Breadcrumb nav={nav} /> : ""}</p>
+        {nav.length > 0 ? <Breadcrumb nav={nav} /> : ""}
 
         {/* Content */}
         {children}

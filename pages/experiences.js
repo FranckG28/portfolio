@@ -5,7 +5,10 @@ export default function Experiences() {
   const pageTitle = "Expériences";
 
   return (
-    <Layout title={pageTitle} navigation={[{ name: "Accueil", path: "/" }]}>
+    <Layout
+      title={pageTitle}
+      navigation={[{ name: "Accueil", path: "/" }, { name: "Expériences" }]}
+    >
       <PageTitle>{pageTitle}</PageTitle>
       <p>Heyyy c'est le expériences</p>
     </Layout>

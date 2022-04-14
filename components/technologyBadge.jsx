@@ -3,10 +3,10 @@ import tw from "tailwind-styled-components";
 export const TechnologyBadge = tw.li`
     px-3
     py-1
-    rounded-xl
+    rounded-lg
     font-bold
 
-    bg-opacity-20
+    bg-opacity-10
 
     hover:bg-opacity-40
 
@@ -14,6 +14,6 @@ export const TechnologyBadge = tw.li`
     ease-in-out
     duration-200
 
-    ${(p) => p.$color}
+    ${(p) => "bg-" + p.$color + " text-" + p.$color}
 
 `;

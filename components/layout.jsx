@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { Button } from "./button";
 import { PageTitle } from "./typo";
 
 const siteTitle = "Franck G.";
@@ -21,7 +22,7 @@ export default function Layout({ children, home, title }) {
           ""
         ) : (
           <Link href="/">
-            <a>Retour</a>
+            <Button>Retour</Button>
           </Link>
         )}
         <PageTitle>{title}</PageTitle>

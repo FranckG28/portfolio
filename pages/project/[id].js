@@ -7,6 +7,7 @@ import {
 } from "../../lib/projectsLib";
 
 import Image from "next/image";
+import Button from "../../components/button";
 import { TechnologyBadge } from "../../components/technologyBadge";
 
 export default function ProjectDetail({ project }) {
@@ -52,7 +53,7 @@ export default function ProjectDetail({ project }) {
         </div>
 
         <p>{project.attributes.description}</p>
-        <a href={project.attributes.link}>Visiter</a>
+        <a href={project.attributes.link}>{/* <Button>Visiter</Button> */}</a>
       </div>
     </Layout>
   );

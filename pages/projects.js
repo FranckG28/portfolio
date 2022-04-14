@@ -16,7 +16,7 @@ export default function Projects({ projects, error }) {
       {error ? (
         <p>{error}</p>
       ) : (
-        <ul className="lg:grid lg:grid-cols-4 gap-3 flex">
+        <ul className="grid grid-cols-1 lg:grid-cols-3 gap-3">
           {projects.data.map((element) => {
             return <ProjectItem key={element.id} project={element} />;
           })}

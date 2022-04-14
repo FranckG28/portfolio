@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ProjectItem({ project }) {
   return (
-    <li className="bg-gray-100 p-5 rounded-xl max-w-max">
+    <li className="bg-gray-100 p-5 rounded-xl">
       {/* <Image src={project.attributes.images} width={200} /> */}
       <h3 className="bold text-xl text-blue-500">
         <Link href={"/project/" + project.id}>

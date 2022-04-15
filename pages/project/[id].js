@@ -70,8 +70,11 @@ export default function ProjectDetail({ project }) {
           })}
         </ul>
 
-        <a href={project.attributes.link}>
+        <a href={project.attributes.link} target="_blank">
           <Button>Visiter</Button>
+        </a>
+        <a href={project.attributes.sourceLink} target="_blank">
+          <Button>Code source</Button>
         </a>
       </div>
     </Layout>

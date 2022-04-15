@@ -7,10 +7,9 @@ export const TechnologyBadge = tw.li`
     font-bold
 
     bg-opacity-5
-    shadow-sm
-    hover:shadow-md
-    focus:shadow-md
-    active:shadow-lg
+    hover:shadow-sm
+    focus:shadow-sm
+    active:shadow-md
 
 
     hover:bg-opacity-20

@@ -13,7 +13,7 @@ import { Button } from "../../components/buttons";
 
 import Image from "next/image";
 import Link from "next/link";
-import { ErrorAlert } from "../../components/alert";
+import { ErrorAlert } from "../../components/alerts";
 
 export default function ProjectDetail({ project, error }) {
   return (

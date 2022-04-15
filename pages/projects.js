@@ -9,7 +9,7 @@ import { PageTitle } from "../components/typo";
 
 import { getCategories, getProjects, makeDate } from "../lib/projectsLib";
 import { adress } from "../lib/fetcher";
-import { ErrorAlert } from "../components/alert";
+import { ErrorAlert } from "../components/alerts";
 
 const pageTitle = "Projets";
 

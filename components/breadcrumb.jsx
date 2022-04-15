@@ -12,12 +12,14 @@ export default function Breadcrumb({ nav }) {
       <ul className="flex">
         {nav.map((item) => {
           return (
-            <li className="inline-block">
+            <li className="inline-block" key={"bread_" + item.name}>
               {item.path ? (
                 <BreadcrumbElement>
-                  <a className="text-blue-500 hover:underline underline-offset-1 active:text-blue-800">
-                    <Link href={item.path}>{item.name}</Link>
-                  </a>
+                  <Link href={item.path}>
+                    <a className="text-blue-500 hover:underline underline-offset-1 active:text-blue-800">
+                      {item.name}
+                    </a>
+                  </Link>
                 </BreadcrumbElement>
               ) : (
                 <BreadcrumbElement className="text-gray-400">

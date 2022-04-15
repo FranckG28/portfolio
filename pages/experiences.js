@@ -1,9 +1,9 @@
 import Layout, { makeTitle } from "../components/layout";
 import { PageTitle } from "../components/typo";
 
-export default function Experiences() {
-  const pageTitle = "Expériences";
+const pageTitle = "Expériences";
 
+export default function Experiences() {
   return (
     <Layout
       title={pageTitle}

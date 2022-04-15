@@ -3,9 +3,9 @@ import { Button } from "../components/buttons";
 import Layout from "../components/layout";
 import { PageTitle } from "../components/typo";
 
-export default function Home() {
-  const pageTitle = "Accueil";
+const pageTitle = "Accueil";
 
+export default function Home() {
   return (
     <Layout home title={pageTitle}>
       <PageTitle>{pageTitle}</PageTitle>

@@ -4,9 +4,9 @@ import { PageTitle } from "../components/typo";
 
 import { getProjects } from "../lib/projectsLib";
 
-export default function Projects({ projects, error }) {
-  const pageTitle = "Projets";
+const pageTitle = "Projets";
 
+export default function Projects({ projects, error }) {
   return (
     <Layout
       title={pageTitle}

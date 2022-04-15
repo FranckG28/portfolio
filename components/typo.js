@@ -1,7 +1,7 @@
 import tw from "tailwind-styled-components/dist/tailwind";
 
 export const PageTitle = tw.h1`
-    font-bold 
+    font-semibold 
     text-6xl
     text-blue-900
     

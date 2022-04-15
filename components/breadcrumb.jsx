@@ -16,7 +16,7 @@ export default function Breadcrumb({ nav }) {
               {item.path ? (
                 <BreadcrumbElement>
                   <Link href={item.path}>
-                    <a className="text-blue-500 hover:underline underline-offset-1 active:text-blue-800">
+                    <a className="text-blue-500 hover:underline underline-offset-2 active:text-blue-800">
                       {item.name}
                     </a>
                   </Link>

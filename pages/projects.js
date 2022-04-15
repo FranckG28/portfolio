@@ -16,7 +16,7 @@ const ProjectCard = tw.article`
 
   bg-white
   shadow-lg
-  rounded-lg
+  rounded-xl
 
   cursor-pointer
 
@@ -105,7 +105,7 @@ export default function Projects({ projects, categories, error }) {
                           layout="fill"
                           objectFit="cover"
                           quality={100}
-                          className="rounded-t-lg"
+                          className="rounded-t-xl"
                         />
                       </div>
 

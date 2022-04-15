@@ -59,9 +59,12 @@ export const ChipButton = tw.button`
     ease-in-out
     duration-200
 
+    hover:shadow-sm
+    
+
     ${(p) =>
       p.$active
         ? "bg-blue-900 text-white drop-shadow-lg"
-        : "bg-blue-100 text-blue-900"}
+        : "bg-blue-100 text-blue-900 hover:bg-blue-200"}
 
 `;

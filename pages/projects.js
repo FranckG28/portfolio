@@ -9,6 +9,7 @@ import { PageTitle } from "../components/typo";
 
 import { getCategories, getProjects, makeDate } from "../lib/projectsLib";
 import { adress } from "../lib/fetcher";
+import { ErrorAlert } from "../components/alert";
 
 const pageTitle = "Projets";
 
@@ -48,7 +49,7 @@ export default function Projects({ projects, categories, error }) {
     >
       <PageTitle>{pageTitle}</PageTitle>
       {error ? (
-        <p>{error}</p>
+        <ErrorAlert>{error}</ErrorAlert>
       ) : (
         <div className="grid gap-5">
           <ul className="flex gap-2">
@@ -65,7 +66,7 @@ export default function Projects({ projects, categories, error }) {
               let name = cat.attributes.name;
               return (
                 <ChipButton
-                  key={name}
+                  key={cat.id}
                   onClick={() => {
                     setSelectedCategory(name);
                   }}
@@ -87,8 +88,8 @@ export default function Projects({ projects, categories, error }) {
                 categoryName === selectedCategory
               ) {
                 return (
-                  <Link href={"/project/" + element.id}>
-                    <ProjectCard key={element.id}>
+                  <Link href={"/project/" + element.id} key={element.id}>
+                    <ProjectCard>
                       <div
                         style={{
                           position: "relative",

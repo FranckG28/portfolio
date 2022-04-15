@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Breadcrumb from "./breadcrumb";
-import { Button } from "./button";
+import { Button } from "./buttons";
 import { PageTitle } from "./typo";
 
 const siteTitle = "Franck G.";

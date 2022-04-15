@@ -8,10 +8,9 @@ import {
 } from "../../lib/projectsLib";
 
 import Image from "next/image";
-import Button from "../../components/button";
 import { TechnologyBadge } from "../../components/technologyBadge";
 import { PageTitle } from "../../components/typo";
-import { DateBadge } from "../../components/dateBadge";
+import { Button } from "../../components/buttons";
 
 export default function ProjectDetail({ project }) {
   return (
@@ -23,27 +22,12 @@ export default function ProjectDetail({ project }) {
         { name: project.attributes.title },
       ]}
     >
-      <div className="grid gap-5">
-        <div className="py-5">
-          <DateBadge>{makeDate(project)}</DateBadge>
-          <PageTitle>{project.attributes.title}</PageTitle>
-
-          <p className="font-light">
-            {project.attributes.tasks + " • " + makeTeam(project)}
-          </p>
-        </div>
-
-        <ul className="flex gap-3">
-          {project.attributes.technologies.data.map((tech) => {
-            return (
-              <TechnologyBadge $color={tech.attributes.color} key={tech.id}>
-                <a href={tech.attributes.link}>{tech.attributes.slug}</a>
-              </TechnologyBadge>
-            );
-          })}
-        </ul>
-
-        <div className="grid grid-cols-3">
+      <div className="py-5 grid gap-3">
+        <p className="text-gray-400">
+          <span className="font-bold">{makeDate(project)}</span>
+          {" • " + project.attributes.tasks + " • " + makeTeam(project)}
+        </p>
+        <div className="flex flex-nowrap overflow-x-auto">
           {project.attributes.images.data.map((img) => {
             return (
               <Image
@@ -55,9 +39,22 @@ export default function ProjectDetail({ project }) {
             );
           })}
         </div>
+        <PageTitle>{project.attributes.title}</PageTitle>
+
+        <ul className="flex gap-3">
+          {project.attributes.technologies.data.map((tech) => {
+            return (
+              <TechnologyBadge $color={tech.attributes.color} key={tech.id}>
+                <a href={tech.attributes.link}>{tech.attributes.slug}</a>
+              </TechnologyBadge>
+            );
+          })}
+        </ul>
 
         <p>{project.attributes.description}</p>
-        <a href={project.attributes.link}>{/* <Button>Visiter</Button> */}</a>
+        <a href={project.attributes.link}>
+          <Button>Visiter</Button>
+        </a>
       </div>
     </Layout>
   );

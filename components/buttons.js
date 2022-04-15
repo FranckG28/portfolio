@@ -3,8 +3,8 @@ import tw from "tailwind-styled-components";
 export const Button = tw.button`
 
     bg-opacity-30
-    bg-emerald-500
-    text-emerald-900
+    bg-blue-500
+    text-blue-900
     
     rounded-lg
     shadow-sm

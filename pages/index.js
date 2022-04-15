@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Button } from "../components/button";
-import Layout, { makeTitle } from "../components/layout";
+import { Button } from "../components/buttons";
+import Layout from "../components/layout";
 import { PageTitle } from "../components/typo";
 
 export default function Home() {

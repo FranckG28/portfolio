@@ -25,18 +25,6 @@ export default function ProjectDetail({ project }) {
       ]}
     >
       <div className="py-5 grid gap-4">
-        <div>
-          {project.attributes.categories.data.map((cat) => {
-            return (
-              <Link href="/" key={cat.id}>
-                <a className="rounded-xl text-blue-900 shadow-sm font-bold inline-block uppercase">
-                  {cat.attributes.name}
-                </a>
-              </Link>
-            );
-          })}
-        </div>
-
         <div className="flex flex-nowrap overflow-x-auto gap-3">
           {project.attributes.images.data.map((img) => {
             return (
@@ -54,6 +42,14 @@ export default function ProjectDetail({ project }) {
 
         <p className="text-blue-800 opacity-80">
           <span className="font-bold">{makeDate(project)}</span>
+          {" • "}
+          {project.attributes.categories.data.map((cat) => {
+            return (
+              <span key={cat.id} className="font-bold uppercase">
+                {cat.attributes.name}
+              </span>
+            );
+          })}
           {" • " + project.attributes.tasks + " • " + makeTeam(project)}
         </p>
 

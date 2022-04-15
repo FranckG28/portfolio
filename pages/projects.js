@@ -109,7 +109,7 @@ export default function Projects({ projects, categories, error }) {
                         />
                       </div>
 
-                      <div className="p-5">
+                      <div className="px-6 pt-5 pb-6">
                         <p className="text-blue-300 font-bold uppercase">
                           {makeDate(element) + " • " + categoryName}
                         </p>

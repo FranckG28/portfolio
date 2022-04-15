@@ -33,7 +33,10 @@ export const Button = tw.button`
     focus:text-white
     focus:bg-blue-400
 
-    transition
+    active:scale-95
+
+    transition-all
+    transform
     ease-in-out
     duration-200
 
@@ -46,6 +49,8 @@ export const ChipButton = tw.button`
     rounded-full
     uppercase
     font-bold
+
+    text-sm
 
     px-3
     py-1

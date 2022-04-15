@@ -40,3 +40,23 @@ export const Button = tw.button`
     inline
 
 `;
+
+export const ChipButton = tw.button`
+
+    rounded-full
+    uppercase
+    font-bold
+
+    px-3
+    py-1
+
+    transition
+    ease-in-out
+    duration-200
+
+    ${(p) =>
+      p.$active
+        ? "bg-blue-900 text-white drop-shadow-lg"
+        : "bg-blue-100 text-blue-900"}
+
+`;

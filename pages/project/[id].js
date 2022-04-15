@@ -25,7 +25,7 @@ export default function ProjectDetail({ project, error }) {
         { name: project.attributes.title },
       ]}
     >
-      {erorr ? (
+      {error ? (
         <ErrorAlert>{error}</ErrorAlert>
       ) : (
         <div className="py-5 grid gap-4">

@@ -2,32 +2,36 @@ import tw from "tailwind-styled-components";
 
 export const Button = tw.button`
 
-    bg-opacity-30
-    bg-blue-500
+    bg-opacity-20
+    bg-blue-500 
     text-blue-900
     
-    rounded-lg
-    shadow-sm
+    rounded-xl
+    shadow-lg 
+    shadow-blue-400/10
+    hover:shadow-blue-400/50
 
-    px-7
-    py-3
+    focus:shadow-xl
+    hover:drop-shadow-xl
+    active:drop-shadow-2xl
+
+    px-5
+    py-2
 
     font-bold
-    text-xl
+    text-lg
 
     hover:bg-opacity-100
     focus:bg-opacity-100
 
     focus:ring-4
-    ring-emerald-500
+    ring-blue-500
     ring-opacity-30
 
     hover:text-white
+    hover:bg-blue-400
     focus:text-white
-    
-    focus:shadow-lg
-    hover:drop-shadow-xl
-    active:drop-shadow-xl
+    focus:bg-blue-400
 
     transition
     ease-in-out

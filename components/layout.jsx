@@ -14,19 +14,21 @@ export default function Layout({ children, navigation, title }) {
   let nav = navigation || [];
 
   return (
-    <div className="container mx-auto py-10 px-5">
-      <Head>
-        <title>{makeTitle(title)}</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Franck GUTMANN Portfolio" />
-      </Head>
-      <main>
-        {/* nav */}
-        {nav.length > 0 ? <Breadcrumb nav={nav} /> : ""}
+    <div className="bg-blue-50 min-h-screen min-w-full">
+      <div className="container mx-auto py-10 px-5 ">
+        <Head>
+          <title>{makeTitle(title)}</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="description" content="Franck GUTMANN Portfolio" />
+        </Head>
+        <main>
+          {/* nav */}
+          {nav.length > 0 ? <Breadcrumb nav={nav} /> : ""}
 
-        {/* Content */}
-        {children}
-      </main>
+          {/* Content */}
+          {children}
+        </main>
+      </div>
     </div>
   );
 }

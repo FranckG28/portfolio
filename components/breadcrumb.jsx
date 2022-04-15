@@ -8,7 +8,7 @@ const BreadcrumbElement = tw.span`
 
 export default function Breadcrumb({ nav }) {
   return (
-    <nav className="bg-gray-100 rounded-xl py-2 px-4 ">
+    <nav className="bg-white rounded-xl py-2 px-4 shadow-sm">
       <ul className="flex">
         {nav.map((item) => {
           return (

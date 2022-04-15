@@ -22,7 +22,7 @@ export default function ProjectDetail({ project }) {
         { name: project.attributes.title },
       ]}
     >
-      <div className="py-5 grid gap-3">
+      <div className="py-5 grid gap-5">
         <p className="text-gray-400">
           <span className="font-bold">{makeDate(project)}</span>
           {" • " + project.attributes.tasks + " • " + makeTeam(project)}
@@ -39,7 +39,7 @@ export default function ProjectDetail({ project }) {
             );
           })}
         </div>
-        <PageTitle>{project.attributes.title}</PageTitle>
+        <PageTitle $nomargin={true}>{project.attributes.title}</PageTitle>
 
         <ul className="flex gap-3">
           {project.attributes.technologies.data.map((tech) => {
@@ -51,7 +51,7 @@ export default function ProjectDetail({ project }) {
           })}
         </ul>
 
-        <p>{project.attributes.description}</p>
+        <p className="text-blue-800">{project.attributes.description}</p>
         <a href={project.attributes.link}>
           <Button>Visiter</Button>
         </a>

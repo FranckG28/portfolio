@@ -1,12 +1,42 @@
 import { useState } from "react";
+import Image from "next/image";
+import tw from "tailwind-styled-components";
+import Link from "next/link";
+
 import { ChipButton } from "../components/buttons";
 import Layout from "../components/layout";
-import ProjectItem from "../components/projectItem";
 import { PageTitle } from "../components/typo";
 
-import { getCategories, getProjects } from "../lib/projectsLib";
+import { getCategories, getProjects, makeDate } from "../lib/projectsLib";
+import { adress } from "../lib/fetcher";
 
 const pageTitle = "Projets";
+
+const ProjectCard = tw.article`
+
+  bg-white
+  shadow-lg
+  rounded-lg
+
+  cursor-pointer
+
+  mt-2
+
+  hover:mb-2
+  hover:mt-0
+  hover:drop-shadow-2xl
+  focus:mb-2
+  focus:mt-0
+  focus:drop-shadow-2xl
+
+  active:scale-95
+
+  transform
+  transition-all
+  ease-in-out
+  duration-200
+
+`;
 
 export default function Projects({ projects, categories, error }) {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -20,7 +50,7 @@ export default function Projects({ projects, categories, error }) {
       {error ? (
         <p>{error}</p>
       ) : (
-        <div>
+        <div className="grid gap-5">
           <ul className="flex gap-2">
             <ChipButton
               key={"all"}
@@ -47,14 +77,53 @@ export default function Projects({ projects, categories, error }) {
             })}
           </ul>
 
-          <ul className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+          <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
             {projects.data.map((element) => {
+              const categoryName =
+                element.attributes.categories.data[0].attributes.name || "";
+
               if (
                 selectedCategory === "" ||
-                element.attributes.categories.data[0].attributes.name ===
-                  selectedCategory
+                categoryName === selectedCategory
               ) {
-                return <ProjectItem key={element.id} project={element} />;
+                return (
+                  <Link href={"/project/" + element.id}>
+                    <ProjectCard key={element.id}>
+                      <div
+                        style={{
+                          position: "relative",
+                          width: "100%",
+                          height: "200px",
+                        }}
+                      >
+                        <Image
+                          src={
+                            adress +
+                            element.attributes.images.data[0].attributes.url
+                          }
+                          alt={element.attributes.name}
+                          layout="fill"
+                          objectFit="cover"
+                          quality={100}
+                          className="rounded-t-lg"
+                        />
+                      </div>
+
+                      <div className="p-5">
+                        <p className="text-blue-300 font-bold uppercase">
+                          {makeDate(element) + " • " + categoryName}
+                        </p>
+                        <h3 className="text-2xl text-blue-600">
+                          {element.attributes.title}
+                        </h3>
+
+                        <p className="line-clamp-3">
+                          {element.attributes.description}
+                        </p>
+                      </div>
+                    </ProjectCard>
+                  </Link>
+                );
               }
             })}
           </ul>

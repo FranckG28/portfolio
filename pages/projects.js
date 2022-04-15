@@ -49,7 +49,13 @@ export default function Projects({ projects, categories, error }) {
 
           <ul className="grid grid-cols-1 lg:grid-cols-3 gap-3">
             {projects.data.map((element) => {
-              return <ProjectItem key={element.id} project={element} />;
+              if (
+                selectedCategory === "" ||
+                element.attributes.categories.data[0].attributes.name ===
+                  selectedCategory
+              ) {
+                return <ProjectItem key={element.id} project={element} />;
+              }
             })}
           </ul>
         </div>

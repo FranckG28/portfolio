@@ -6,6 +6,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ["Readex Pro", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [require("@tailwindcss/line-clamp")],

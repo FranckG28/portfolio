@@ -18,7 +18,7 @@ export default function Experiences({ experiences, error }) {
         <ErrorAlert>{error}</ErrorAlert>
       ) : (
         <div>
-          <ol class="relative border-l border-blue-900 border-opacity-20 ml-3">
+          <ol className="relative border-l border-blue-900 border-opacity-20 ml-3">
             {experiences.data.map((element) => {
               const dateStart = parseISO(element.attributes.dateStart);
 

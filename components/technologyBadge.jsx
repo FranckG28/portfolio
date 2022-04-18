@@ -4,15 +4,13 @@ export const TechnologyBadge = tw.li`
     px-3
     py-1
     rounded-lg
-    font-bold
+    font-light
 
-    bg-opacity-5
-    hover:shadow-sm
-    focus:shadow-sm
-    active:shadow-md
+    bg-opacity-10
 
 
-    hover:bg-opacity-20
+    hover:bg-opacity-100
+    hover:text-white
 
     transition
     ease-in-out

@@ -17,14 +17,10 @@ const ProjectContainer = tw.article`
   rounded-xl
 
   cursor-pointer
+  hover:-translate-y-1
+  focus:-translate-y-1
 
-  mt-2
-
-  hover:mb-2
-  hover:mt-0
   hover:drop-shadow-2xl
-  focus:mb-2
-  focus:mt-0
   focus:drop-shadow-2xl
 
   active:scale-95

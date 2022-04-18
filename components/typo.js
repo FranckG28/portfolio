@@ -13,7 +13,7 @@ export const ItemSubtitle = tw.p`
     text-indigo-800 
     font-bold 
     uppercase 
-    text-sm 
+    text-xs
     tracking-tight
 `;
 

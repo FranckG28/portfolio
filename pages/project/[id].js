@@ -64,9 +64,11 @@ export default function ProjectDetail({ project, error }) {
           <ul className="flex gap-3">
             {project.attributes.technologies.data.map((tech) => {
               return (
-                <TechnologyBadge $color={tech.attributes.color} key={tech.id}>
-                  <a href={tech.attributes.link}>{tech.attributes.slug}</a>
-                </TechnologyBadge>
+                <a href={tech.attributes.link}>
+                  <TechnologyBadge $color={tech.attributes.color} key={tech.id}>
+                    {tech.attributes.slug}
+                  </TechnologyBadge>
+                </a>
               );
             })}
           </ul>

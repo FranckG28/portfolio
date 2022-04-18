@@ -17,11 +17,8 @@ export const Button = tw.button`
     px-6
     py-2
 
-    mt-0.5
-    hover:mt-0
-    focus:mt-0
-    hover:mb-0.5
-    focus:mb-0.5
+    hover:-translate-y-0.5
+    focus:-translate-y-0.5
 
     font-normal
     text-lg

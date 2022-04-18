@@ -14,7 +14,7 @@ export default function Layout({ children, navigation, title }) {
   let nav = navigation || [];
 
   return (
-    <div className="bg-blue-50 min-h-screen min-w-full">
+    <div className="bg-neutral-50 min-h-screen min-w-full">
       <div className="container mx-auto py-10 px-5 ">
         <Head>
           <title>{makeTitle(title)}</title>

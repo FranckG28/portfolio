@@ -6,6 +6,20 @@ const BreadcrumbElement = tw.span`
 
 `;
 
+const BreadcrumbLink = tw.a`
+text-indigo-500 
+  hover:underline 
+  hover:underline-offset-2 
+  underline-offset-0
+  active:text-indigo-800
+  cursor-pointer
+
+  transition-all
+  ease-in-out
+  duration-200
+
+`;
+
 export default function Breadcrumb({ nav }) {
   return (
     <nav className="bg-white rounded-xl py-2 px-4 shadow-sm">
@@ -16,9 +30,7 @@ export default function Breadcrumb({ nav }) {
               {item.path ? (
                 <BreadcrumbElement>
                   <Link href={item.path}>
-                    <a className="text-blue-500 hover:underline underline-offset-2 active:text-blue-800">
-                      {item.name}
-                    </a>
+                    <BreadcrumbLink>{item.name}</BreadcrumbLink>
                   </Link>
                 </BreadcrumbElement>
               ) : (

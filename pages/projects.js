@@ -5,7 +5,12 @@ import Link from "next/link";
 
 import { ChipButton } from "../components/buttons";
 import Layout from "../components/layout";
-import { PageTitle } from "../components/typo";
+import {
+  ItemSubtitle,
+  ItemTitle,
+  PageTitle,
+  ItemDescription,
+} from "../components/typo";
 
 import { getCategories, getProjects, makeDate } from "../lib/projectsLib";
 import { adress } from "../lib/fetcher";
@@ -111,16 +116,14 @@ export default function Projects({ projects, categories, error }) {
                       </div>
 
                       <div className="px-6 pt-5 pb-6">
-                        <p className="text-blue-300 font-bold uppercase">
+                        <ItemSubtitle>
                           {makeDate(element) + " • " + categoryName}
-                        </p>
-                        <h3 className="text-2xl text-blue-600">
-                          {element.attributes.title}
-                        </h3>
+                        </ItemSubtitle>
+                        <ItemTitle>{element.attributes.title}</ItemTitle>
 
-                        <p className="line-clamp-3">
+                        <ItemDescription>
                           {element.attributes.description}
-                        </p>
+                        </ItemDescription>
                       </div>
                     </ProjectCard>
                   </Link>

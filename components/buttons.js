@@ -2,36 +2,36 @@ import tw from "tailwind-styled-components";
 
 export const Button = tw.button`
 
-    bg-opacity-20
-    bg-blue-500 
-    text-blue-900
+    bg-indigo-600 
+    text-white
     
-    rounded-xl
+    rounded-lg
     shadow-lg 
-    shadow-blue-400/10
-    hover:shadow-blue-400/50
+    shadow-indigo-400/10
+    hover:shadow-indigo-400/50
 
     focus:shadow-xl
     hover:drop-shadow-xl
     active:drop-shadow-2xl
 
-    px-5
+    px-6
     py-2
 
-    font-bold
+    mt-0.5
+    hover:mt-0
+    focus:mt-0
+    hover:mb-0.5
+    focus:mb-0.5
+
+    font-normal
     text-lg
 
-    hover:bg-opacity-100
-    focus:bg-opacity-100
-
     focus:ring-4
-    ring-blue-500
+    ring-indigo-500
     ring-opacity-30
 
-    hover:text-white
-    hover:bg-blue-400
-    focus:text-white
-    focus:bg-blue-400
+    hover:bg-indigo-500
+    focus:bg-indigo-500
 
     active:scale-95
 
@@ -59,12 +59,9 @@ export const ChipButton = tw.button`
     ease-in-out
     duration-200
 
-    hover:shadow-sm
-    
-
     ${(p) =>
       p.$active
-        ? "bg-blue-900 text-white drop-shadow-lg"
-        : "bg-blue-100 text-blue-900 hover:bg-blue-200"}
+        ? "bg-indigo-500 text-white shadow-lg shadow-indigo-400/50"
+        : "bg-indigo-100 text-indigo-500  hover:bg-indigo-200"}
 
 `;

@@ -7,13 +7,24 @@ import {
 } from "../../lib/projectsLib";
 
 import { TechnologyBadge } from "../../components/technologyBadge";
-import { PageTitle } from "../../components/typo";
+import {
+  PageTitle,
+  Paragraph,
+  SectionLabel,
+  SectionText,
+} from "../../components/typo";
 import { Button } from "../../components/buttons";
 
 import Image from "next/image";
 import Link from "next/link";
+import tw from "tailwind-styled-components";
 import { ErrorAlert } from "../../components/alerts";
 import { adress } from "../../lib/fetcher";
+
+const InfoSection = tw.section`
+  flex
+  flex-col
+`;
 
 export default function ProjectDetail({ project, error }) {
   return (
@@ -29,7 +40,7 @@ export default function ProjectDetail({ project, error }) {
         <ErrorAlert>{error}</ErrorAlert>
       ) : (
         <div className="py-5 grid gap-4">
-          <div className="flex flex-nowrap overflow-x-auto gap-3">
+          <section className="flex flex-nowrap overflow-x-auto gap-3">
             {project.attributes.images.data.map((img) => {
               return (
                 <Image
@@ -42,43 +53,63 @@ export default function ProjectDetail({ project, error }) {
                 />
               );
             })}
-          </div>
+          </section>
 
-          <p className="text-blue-800 opacity-80">
-            <span className="font-bold">{makeDate(project)}</span>
-            {" • "}
-            {project.attributes.categories.data.map((cat) => {
-              return (
-                <span key={cat.id} className="font-bold uppercase">
-                  {cat.attributes.name}
-                </span>
-              );
-            })}
-            {" • " + project.attributes.tasks + " • " + makeTeam(project)}
-          </p>
+          <PageTitle>{project.attributes.title}</PageTitle>
 
-          <PageTitle $nomargin>{project.attributes.title}</PageTitle>
+          <section className="grid xl:grid-cols-4 gap-8 items-start">
+            <div className="lg:col-span-3 grid gap-3">
+              <Paragraph>{project.attributes.description}</Paragraph>
 
-          <p className="text-blue-800">{project.attributes.description}</p>
+              <a href={project.attributes.link} target="_blank">
+                <Button>Visiter</Button>
+              </a>
+              <a href={project.attributes.sourceLink} target="_blank">
+                <Button>Code source</Button>
+              </a>
+            </div>
 
-          <ul className="flex gap-3">
-            {project.attributes.technologies.data.map((tech) => {
-              return (
-                <a href={tech.attributes.link}>
-                  <TechnologyBadge $color={tech.attributes.color} key={tech.id}>
-                    {tech.attributes.slug}
-                  </TechnologyBadge>
-                </a>
-              );
-            })}
-          </ul>
+            <div className="rounded-lg shadow-lg bg-white p-6">
+              <ul className="grid gap-5">
+                <InfoSection>
+                  <SectionLabel>Catégories</SectionLabel>
+                  <SectionText>
+                    {project.attributes.categories.data.map((cat) => {
+                      return cat.attributes.name + " ";
+                    })}
+                  </SectionText>
+                </InfoSection>
 
-          <a href={project.attributes.link} target="_blank">
-            <Button>Visiter</Button>
-          </a>
-          <a href={project.attributes.sourceLink} target="_blank">
-            <Button>Code source</Button>
-          </a>
+                <InfoSection>
+                  <SectionLabel>équipe</SectionLabel>
+                  <SectionText>{makeTeam(project)}</SectionText>
+                </InfoSection>
+
+                <InfoSection>
+                  <SectionLabel>Tâches</SectionLabel>
+                  <SectionText>{project.attributes.tasks}</SectionText>
+                </InfoSection>
+
+                <InfoSection>
+                  <SectionLabel>Technologies</SectionLabel>
+                  <ul className="flex flex-wrap gap-1 my-1">
+                    {project.attributes.technologies.data.map((tech) => {
+                      return (
+                        <a href={tech.attributes.link}>
+                          <TechnologyBadge
+                            $color={tech.attributes.color}
+                            key={tech.id}
+                          >
+                            {tech.attributes.slug}
+                          </TechnologyBadge>
+                        </a>
+                      );
+                    })}
+                  </ul>
+                </InfoSection>
+              </ul>
+            </div>
+          </section>
         </div>
       )}
     </Layout>

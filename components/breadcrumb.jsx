@@ -22,7 +22,7 @@ text-indigo-500
 
 export default function Breadcrumb({ nav }) {
   return (
-    <nav className="bg-white rounded-xl py-2 px-4 shadow-sm">
+    <nav className="bg-white rounded-xl py-2 px-4 shadow-sm shadow-indigo-500/10">
       <ul className="flex">
         {nav.map((item) => {
           return (

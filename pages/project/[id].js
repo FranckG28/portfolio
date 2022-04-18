@@ -1,5 +1,4 @@
 import Layout from "../../components/layout";
-import { adress } from "../../lib/fetcher";
 import {
   getProjectData,
   getProjectsIds,
@@ -14,6 +13,7 @@ import { Button } from "../../components/buttons";
 import Image from "next/image";
 import Link from "next/link";
 import { ErrorAlert } from "../../components/alerts";
+import { adress } from "../../lib/fetcher";
 
 export default function ProjectDetail({ project, error }) {
   return (

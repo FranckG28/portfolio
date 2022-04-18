@@ -1,48 +1,14 @@
 import { useState } from "react";
-import Image from "next/image";
-import tw from "tailwind-styled-components";
-import Link from "next/link";
 
 import { ChipButton } from "../components/buttons";
 import Layout from "../components/layout";
-import {
-  ItemSubtitle,
-  ItemTitle,
-  PageTitle,
-  ItemDescription,
-} from "../components/typo";
+import { PageTitle } from "../components/typo";
 
 import { getCategories, getProjects, makeDate } from "../lib/projectsLib";
-import { adress } from "../lib/fetcher";
 import { ErrorAlert } from "../components/alerts";
+import ProjectCard from "../components/projectCard";
 
 const pageTitle = "Projets";
-
-const ProjectCard = tw.article`
-
-  bg-white
-  shadow-lg
-  rounded-xl
-
-  cursor-pointer
-
-  mt-2
-
-  hover:mb-2
-  hover:mt-0
-  hover:drop-shadow-2xl
-  focus:mb-2
-  focus:mt-0
-  focus:drop-shadow-2xl
-
-  active:scale-95
-
-  transform
-  transition-all
-  ease-in-out
-  duration-200
-
-`;
 
 export default function Projects({ projects, categories, error }) {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -88,45 +54,16 @@ export default function Projects({ projects, categories, error }) {
               const categoryName =
                 element.attributes.categories.data[0].attributes.name || "";
 
-              if (
-                selectedCategory === "" ||
-                categoryName === selectedCategory
-              ) {
+              let visible =
+                selectedCategory === "" || categoryName === selectedCategory;
+
+              if (visible) {
                 return (
-                  <Link href={"/project/" + element.id} key={element.id}>
-                    <ProjectCard>
-                      <div
-                        style={{
-                          position: "relative",
-                          width: "100%",
-                          height: "200px",
-                        }}
-                      >
-                        <Image
-                          src={
-                            adress +
-                            element.attributes.images.data[0].attributes.url
-                          }
-                          alt={element.attributes.name}
-                          layout="fill"
-                          objectFit="cover"
-                          quality={100}
-                          className="rounded-t-xl"
-                        />
-                      </div>
-
-                      <div className="px-6 pt-5 pb-6">
-                        <ItemSubtitle>
-                          {makeDate(element) + " • " + categoryName}
-                        </ItemSubtitle>
-                        <ItemTitle>{element.attributes.title}</ItemTitle>
-
-                        <ItemDescription>
-                          {element.attributes.description}
-                        </ItemDescription>
-                      </div>
-                    </ProjectCard>
-                  </Link>
+                  <ProjectCard
+                    element={element}
+                    key={element.id}
+                    visible={visible}
+                  />
                 );
               }
             })}

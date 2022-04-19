@@ -59,8 +59,15 @@ export default function ProjectDetail({ project, error }) {
 
           <section className="grid xl:grid-cols-4 gap-8 items-start">
             <div className="lg:col-span-3 grid gap-3">
-              <PageTitle>{project.attributes.title}</PageTitle>
-              <p>{project.attributes.experience.data.attributes.name}</p>
+              <p className="font-bold text-indigo-300">
+                {makeDate(project) + " • "}
+                <Link
+                  href={"/experience/" + project.attributes.experience.data.id}
+                >
+                  {project.attributes.experience.data.attributes.name}
+                </Link>
+              </p>
+              <PageTitle $nomargin>{project.attributes.title}</PageTitle>
               <Paragraph>{project.attributes.description}</Paragraph>
 
               <a href={project.attributes.link} target="_blank">

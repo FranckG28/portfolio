@@ -41,7 +41,7 @@ export const Paragraph = tw.p`
 
 `;
 
-export const SectionLabel = tw.p`
+export const InfoSectionTitle = tw.p`
 
     font-light
     text-xs
@@ -50,7 +50,7 @@ export const SectionLabel = tw.p`
 
 `;
 
-export const SectionText = tw.p`
+export const InfoSectionText = tw.p`
 
     font-medium
     text-lg

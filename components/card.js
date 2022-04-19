@@ -21,3 +21,10 @@ export const Card = tw.article`
   duration-200
 
 `;
+
+export const PaddingCard = tw(Card)`
+
+    py-5
+    px-8
+
+`;

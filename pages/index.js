@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Button } from "../components/buttons";
+import { Card, PaddingCard } from "../components/card";
 import Layout from "../components/layout";
-import { PageTitle } from "../components/typo";
+import { ItemTitle, PageTitle } from "../components/typo";
 
 const pageTitle = "Accueil";
 
@@ -20,14 +21,32 @@ export default function Home() {
           <p>{calculateAge(new Date("2002-10-28")) + " ans"}</p>
         </div>
       </header>
-      <section className="flex gap-2">
+      <section className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
         <Link href="/projects">
-          <Button>Projets</Button>
+          <PaddingCard>
+            <ItemTitle>Projets</ItemTitle>
+          </PaddingCard>
         </Link>
 
         <Link href="/experiences">
-          <Button>Expériences</Button>
+          <PaddingCard>
+            <ItemTitle>Expériences</ItemTitle>
+          </PaddingCard>
         </Link>
+
+        <Link href="/videos">
+          <PaddingCard>
+            <ItemTitle>Vidéos</ItemTitle>
+          </PaddingCard>
+        </Link>
+
+        <div className="xl:col-span-3">
+          <Link href="/experiences">
+            <PaddingCard>
+              <ItemTitle>Télécharger mon CV</ItemTitle>
+            </PaddingCard>
+          </Link>
+        </div>
       </section>
     </Layout>
   );

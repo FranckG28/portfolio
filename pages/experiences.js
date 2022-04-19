@@ -4,6 +4,7 @@ import { PageTitle } from "../components/typo";
 import { getDegrees, getExperiences } from "../lib/experiencesLib";
 
 import { parseISO, format } from "date-fns";
+import { fr } from "date-fns/locale";
 
 const pageTitle = "Expériences";
 
@@ -22,19 +23,22 @@ export default function Experiences({ experiences, error }) {
             {experiences.data.map((element) => {
               const dateStart = parseISO(element.attributes.dateStart);
 
-              const start = format(dateStart, "LLLL yyyy");
+              const start = format(dateStart, "LLLL yyyy", { locale: fr });
 
               let dateEnd, end;
               if (element.attributes.dateEnd) {
                 dateEnd = parseISO(element.attributes.dateEnd);
-                end = format(dateEnd, "LLLL yyyy");
+                end = format(dateEnd, "LLLL yyyy", { locale: fr });
               }
 
               return (
                 <li className="mb-10 ml-6" key={element.id}>
                   <div className="absolute w-4 h-4 bg-blue-300 rounded-full mt-1.5 -left-2 border-2 border-blue-200"></div>
                   <p className="mb-1 text-sm font-normal leading-none text-gray-400">
-                    <time className="" dateTime={element.attributes.dateStart}>
+                    <time
+                      className="capitalize "
+                      dateTime={element.attributes.dateStart}
+                    >
                       {start + (end ? " à " + end : " à Aujourd'hui")}
                     </time>
                     {" • "}

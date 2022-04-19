@@ -19,7 +19,7 @@ export default function Experiences({ experiences, error }) {
         <ErrorAlert>{error}</ErrorAlert>
       ) : (
         <div>
-          <ol className="relative border-l border-blue-900 border-opacity-20 ml-3">
+          <ol className="relative border-l border-neutral-200 ml-3">
             {experiences.data.map((element) => {
               const dateStart = parseISO(element.attributes.dateStart);
 
@@ -33,8 +33,8 @@ export default function Experiences({ experiences, error }) {
 
               return (
                 <li className="mb-10 ml-6" key={element.id}>
-                  <div className="absolute w-4 h-4 bg-blue-300 rounded-full mt-1.5 -left-2 border-2 border-blue-200"></div>
-                  <p className="mb-1 text-sm font-normal leading-none text-gray-400">
+                  <div className="absolute w-4 h-4 bg-indigo-400 rounded-full mt-1.5 -left-2 border-2 border-indigo-200"></div>
+                  <div className="mb-1 text-sm font-normal leading-none text-neutral-400 flex flex-wrap gap-3">
                     <time
                       className="capitalize "
                       dateTime={element.attributes.dateStart}
@@ -42,10 +42,15 @@ export default function Experiences({ experiences, error }) {
                       {start + (end ? " à " + end : " à Aujourd'hui")}
                     </time>
                     {" • "}
-                    <span className="font-semibold">
-                      {element.attributes.place.data.attributes.name}
-                    </span>
-                  </p>
+                    <p className="font-semibold">
+                      <a
+                        href={element.attributes.place.data.attributes.link}
+                        target="_blank"
+                      >
+                        {element.attributes.place.data.attributes.name}
+                      </a>
+                    </p>
+                  </div>
                   <h3 className="text-lg font-semibold text-gray-900">
                     {element.attributes.name}
                   </h3>

@@ -40,20 +40,3 @@ export const Paragraph = tw.p`
     text-neutral-600
 
 `;
-
-export const InfoSectionTitle = tw.p`
-
-    font-light
-    text-xs
-    uppercase
-    text-neutral-500
-
-`;
-
-export const InfoSectionText = tw.p`
-
-    font-medium
-    text-lg
-    text-indigo-600
-
-`;

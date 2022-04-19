@@ -7,12 +7,13 @@ import {
 } from "../../lib/projectsLib";
 
 import { TechnologyBadge } from "../../components/technologyBadge";
+import { PageTitle, Paragraph } from "../../components/typo";
 import {
-  PageTitle,
-  Paragraph,
   InfoSectionTitle,
   InfoSectionText,
-} from "../../components/typo";
+  SectionTitle,
+  Section,
+} from "../../components/sections";
 import { Button } from "../../components/buttons";
 
 import Image from "next/image";
@@ -20,6 +21,7 @@ import Link from "next/link";
 import tw from "tailwind-styled-components";
 import { ErrorAlert } from "../../components/alerts";
 import { adress } from "../../lib/fetcher";
+import ReactPlayer from "react-player";
 
 const InfoSection = tw.section`
   flex
@@ -59,7 +61,7 @@ export default function ProjectDetail({ project, error }) {
 
           <section className="grid xl:grid-cols-4 gap-8 items-start">
             <div className="lg:col-span-3 grid gap-3">
-              <p className="font-bold text-indigo-300">
+              <p className="font-bold text-indigo-400">
                 {makeDate(project) + " • "}
                 <Link
                   href={"/experience/" + project.attributes.experience.data.id}
@@ -69,6 +71,29 @@ export default function ProjectDetail({ project, error }) {
               </p>
               <PageTitle $nomargin>{project.attributes.title}</PageTitle>
               <Paragraph>{project.attributes.description}</Paragraph>
+
+              {project.attributes.videos.data.length > 0 ? (
+                <Section id="videos">
+                  <SectionTitle>Vidéos</SectionTitle>
+
+                  <div className="grid grid-cols-2 gap-5">
+                    {project.attributes.videos.data.map((video) => {
+                      return (
+                        <div className="grid gap-2 rounded-lg aspect-video">
+                          <ReactPlayer
+                            url={video.attributes.link}
+                            width={"100%"}
+                            height={"100%"}
+                            controls="true"
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </Section>
+              ) : (
+                ""
+              )}
 
               <a href={project.attributes.link} target="_blank">
                 <Button>Visiter</Button>

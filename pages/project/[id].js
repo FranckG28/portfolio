@@ -55,10 +55,9 @@ export default function ProjectDetail({ project, error }) {
             })}
           </section>
 
-          <PageTitle>{project.attributes.title}</PageTitle>
-
           <section className="grid xl:grid-cols-4 gap-8 items-start">
             <div className="lg:col-span-3 grid gap-3">
+              <PageTitle>{project.attributes.title}</PageTitle>
               <Paragraph>{project.attributes.description}</Paragraph>
 
               <a href={project.attributes.link} target="_blank">

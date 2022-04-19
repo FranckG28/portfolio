@@ -6,36 +6,12 @@ import { ItemSubtitle, ItemTitle, ItemDescription } from "../components/typo";
 import { makeDate } from "../lib/projectsLib";
 
 import { adress } from "../lib/fetcher";
-
-import tw from "tailwind-styled-components";
-import { Transition } from "@headlessui/react";
-
-const ProjectContainer = tw.article`
-
-  bg-white
-  shadow-lg
-  rounded-xl
-
-  cursor-pointer
-  hover:-translate-y-1
-  focus:-translate-y-1
-
-  hover:drop-shadow-2xl
-  focus:drop-shadow-2xl
-
-  active:scale-95
-
-  transform
-  transition-all
-  ease-in-out
-  duration-200
-
-`;
+import { Card } from "./card";
 
 export default function ProjectCard({ element }) {
   return (
     <Link href={"/project/" + element.id}>
-      <ProjectContainer>
+      <Card>
         <div
           style={{
             position: "relative",
@@ -65,7 +41,7 @@ export default function ProjectCard({ element }) {
 
           <ItemDescription>{element.attributes.description}</ItemDescription>
         </div>
-      </ProjectContainer>
+      </Card>
     </Link>
   );
 }

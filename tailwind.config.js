@@ -9,6 +9,9 @@ module.exports = {
     fontFamily: {
       sans: ["Readex Pro", "sans-serif"],
     },
+    container: {
+      center: true,
+    },
     extend: {},
   },
   plugins: [require("@tailwindcss/line-clamp")],

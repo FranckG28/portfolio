@@ -14,7 +14,7 @@ import {
   SectionTitle,
   Section,
 } from "../../components/sections";
-import { Button } from "../../components/buttons";
+import { Button, ButtonLink } from "../../components/buttons";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -29,8 +29,6 @@ const InfoSection = tw.section`
 `;
 
 export default function ProjectDetail({ project, error }) {
-  console.log(project);
-
   return (
     <Layout
       title={project.attributes.title}
@@ -43,7 +41,7 @@ export default function ProjectDetail({ project, error }) {
       {error ? (
         <ErrorAlert>{error}</ErrorAlert>
       ) : (
-        <div className="py-5 grid gap-4">
+        <div className="py-10 grid gap-5">
           <section className="flex flex-nowrap overflow-x-auto gap-3">
             {project.attributes.images.data.map((img) => {
               return (
@@ -60,19 +58,39 @@ export default function ProjectDetail({ project, error }) {
           </section>
 
           <section className="grid xl:grid-cols-4 gap-8 items-start">
-            <div className="lg:col-span-3 grid gap-3">
+            <div className="lg:col-span-3 grid gap-8">
               <p className="font-bold text-indigo-400">
-                {makeDate(project) + " • "}
-                <Link
-                  href={"/experience/" + project.attributes.experience.data.id}
-                >
-                  {project.attributes.experience.data.attributes.name}
-                </Link>
+                {makeDate(project)}
+                {project.attributes.experience.data ? (
+                  <>
+                    {" • "}
+                    <Link
+                      href={
+                        "/experience/" + project.attributes.experience.data.id
+                      }
+                    >
+                      {project.attributes.experience.data.attributes.name}
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
               </p>
-              <PageTitle $nomargin>
-                {project.attributes.title}
-                <span class="material-icons-outlined">open_in_new</span>
-              </PageTitle>
+              {project.attributes.link ? (
+                <a href={project.attributes.link} target="_blank">
+                  <PageTitle $nomargin $clickable>
+                    {project.attributes.title}
+                    <span
+                      className="material-icons-outlined ml-5"
+                      style={{ "font-size": "48px" }}
+                    >
+                      open_in_new
+                    </span>
+                  </PageTitle>
+                </a>
+              ) : (
+                <PageTitle $nomargin>{project.attributes.title}</PageTitle>
+              )}
               <Paragraph>{project.attributes.description}</Paragraph>
 
               {project.attributes.videos.data.length > 0 ? (
@@ -97,13 +115,6 @@ export default function ProjectDetail({ project, error }) {
               ) : (
                 ""
               )}
-
-              <a href={project.attributes.link} target="_blank">
-                <Button>Visiter</Button>
-              </a>
-              <a href={project.attributes.sourceLink} target="_blank">
-                <Button>Code source</Button>
-              </a>
             </div>
 
             <div className="rounded-lg shadow-lg bg-white p-6">
@@ -140,6 +151,20 @@ export default function ProjectDetail({ project, error }) {
                       );
                     })}
                   </ul>
+                </InfoSection>
+
+                <InfoSection>
+                  <a href={project.attributes.sourceLink} target="_blank">
+                    <ButtonLink>
+                      Code source{" "}
+                      <span
+                        className="material-icons-outlined ml-2"
+                        style={{ "font-size": "18px" }}
+                      >
+                        open_in_new
+                      </span>
+                    </ButtonLink>
+                  </a>
                 </InfoSection>
               </ul>
             </div>

@@ -6,9 +6,19 @@ export const PageTitle = tw.h1`
     text-6xl
     
     tracking-tight
+
+    transition-all
+    ease-in-out
+    duration-75
     
-    ${(p) => (p.$nomargin ? `leading-1` : "leading-loose md:leading-loose")}
+    ${(p) => (p.$nomargin ? `leading-snug` : "leading-loose md:leading-loose")}
     ${(p) => p.$color || "text-indigo-500"}
+
+
+    ${(p) =>
+      p.$clickable
+        ? "hover:underline focus:underline underline-offset-8 hover:text-indigo-600"
+        : ""}
 `;
 
 export const ItemSubtitle = tw.p`
@@ -35,7 +45,7 @@ export const ItemDescription = tw.p`
 
 export const Paragraph = tw.p`
 
-    text-lg
+    text-md
     font-normal
     text-neutral-600
 

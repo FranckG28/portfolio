@@ -1,22 +1,9 @@
 import Link from "next/link";
 import tw from "tailwind-styled-components";
+import { ButtonLink } from "./buttons";
 
 const BreadcrumbElement = tw.span`
      
-
-`;
-
-const BreadcrumbLink = tw.a`
-text-indigo-500 
-  hover:underline 
-  hover:underline-offset-2 
-  underline-offset-0
-  active:text-indigo-800
-  cursor-pointer
-
-  transition-all
-  ease-in-out
-  duration-200
 
 `;
 
@@ -30,7 +17,7 @@ export default function Breadcrumb({ nav }) {
               {item.path ? (
                 <BreadcrumbElement>
                   <Link href={item.path}>
-                    <BreadcrumbLink>{item.name}</BreadcrumbLink>
+                    <ButtonLink>{item.name}</ButtonLink>
                   </Link>
                 </BreadcrumbElement>
               ) : (

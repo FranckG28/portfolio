@@ -62,3 +62,17 @@ export const ChipButton = tw.button`
         : "bg-indigo-100 text-indigo-500  hover:bg-indigo-200"}
 
 `;
+
+export const ButtonLink = tw.a`
+text-indigo-500 
+  hover:underline 
+  hover:underline-offset-2 
+  underline-offset-0
+  active:text-indigo-800
+  cursor-pointer
+
+  transition-all
+  ease-in-out
+  duration-200
+
+`;

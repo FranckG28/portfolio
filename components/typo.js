@@ -4,10 +4,11 @@ export const PageTitle = tw.h1`
     font-normal 
     md:text-8xl
     text-6xl
-    text-indigo-500
+    
     tracking-tight
     
     ${(p) => (p.$nomargin ? `leading-1` : "leading-loose md:leading-loose")}
+    ${(p) => p.$color || "text-indigo-500"}
 `;
 
 export const ItemSubtitle = tw.p`

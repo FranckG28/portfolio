@@ -69,7 +69,10 @@ export default function ProjectDetail({ project, error }) {
                   {project.attributes.experience.data.attributes.name}
                 </Link>
               </p>
-              <PageTitle $nomargin>{project.attributes.title}</PageTitle>
+              <PageTitle $nomargin>
+                {project.attributes.title}
+                <span class="material-icons-outlined">open_in_new</span>
+              </PageTitle>
               <Paragraph>{project.attributes.description}</Paragraph>
 
               {project.attributes.videos.data.length > 0 ? (

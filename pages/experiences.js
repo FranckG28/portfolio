@@ -8,8 +8,20 @@ import { fr } from "date-fns/locale";
 import { adress } from "../lib/fetcher";
 
 import Image from "next/image";
+import Link from "next/link";
+
+import tw from "tailwind-styled-components";
+import { ChipButton } from "../components/buttons";
 
 const pageTitle = "Expériences";
+
+const ItemList = tw.div`
+
+  flex
+  gap-3
+  align-middle
+
+`;
 
 export default function Experiences({ experiences, error }) {
   return (
@@ -71,6 +83,34 @@ export default function Experiences({ experiences, error }) {
                         {element.attributes.name}
                       </h3>
                       <Paragraph>{element.attributes.description}</Paragraph>
+
+                      {element.attributes.projects.data.length > 0 ? (
+                        <ItemList>
+                          <p>Projets : </p>
+                          {element.attributes.projects.data.map((project) => {
+                            return (
+                              <Link href={"/project/" + project.id}>
+                                <ChipButton>
+                                  {project.attributes.title}
+                                </ChipButton>
+                              </Link>
+                            );
+                          })}
+                        </ItemList>
+                      ) : (
+                        ""
+                      )}
+
+                      {element.attributes.degrees.data.length > 0 ? (
+                        <ItemList>
+                          <p>Diplômes : </p>
+                          {element.attributes.degrees.data.map((degree) => {
+                            return <p>{degree.attributes.name}</p>;
+                          })}
+                        </ItemList>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                 </li>

@@ -41,11 +41,14 @@ export default function Home() {
         </Link>
 
         <div className="xl:col-span-3">
-          <Link href="/experiences">
+          <a
+            href="https://drive.google.com/file/d/1MzYGLruaO9yYWd2MqmMlJoadk1T2ZM6H/view?usp=sharing"
+            target="_blank"
+          >
             <PaddingCard>
               <ItemTitle>Télécharger mon CV</ItemTitle>
             </PaddingCard>
-          </Link>
+          </a>
         </div>
       </section>
     </Layout>

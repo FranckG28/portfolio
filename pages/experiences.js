@@ -15,7 +15,7 @@ export default function Experiences({ experiences, error }) {
   return (
     <Layout
       title={pageTitle}
-      navigation={[{ name: "Accueil", path: "/" }, { name: "Expériences" }]}
+      navigation={[{ name: "Accueil", path: "/" }, { name: pageTitle }]}
     >
       <PageTitle>{pageTitle}</PageTitle>
       {error ? (

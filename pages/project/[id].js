@@ -100,12 +100,15 @@ export default function ProjectDetail({ project, error }) {
                   <div className="grid grid-cols-2 gap-5">
                     {project.attributes.videos.data.map((video) => {
                       return (
-                        <div className="grid gap-2 rounded-lg aspect-video">
+                        <div
+                          className="grid gap-2 rounded-lg aspect-video"
+                          key={video.id}
+                        >
                           <ReactPlayer
                             url={video.attributes.link}
                             width={"100%"}
                             height={"100%"}
-                            controls="true"
+                            controls={true}
                           />
                         </div>
                       );

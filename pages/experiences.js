@@ -18,8 +18,15 @@ const pageTitle = "Expériences";
 const ItemList = tw.div`
 
   flex
-  gap-3
+  gap-2
   align-middle
+
+`;
+
+const ItemTitle = tw.p`
+
+  font-bold 
+  text-neutral-400
 
 `;
 
@@ -34,7 +41,7 @@ export default function Experiences({ experiences, error }) {
         <ErrorAlert>{error}</ErrorAlert>
       ) : (
         <div>
-          <ol className="relative border-l border-neutral-200 ml-3">
+          <ol className="relative border-l border-neutral-200 ml-3 grid gap-8">
             {experiences.data.map((element) => {
               const dateStart = parseISO(element.attributes.dateStart);
 
@@ -62,7 +69,7 @@ export default function Experiences({ experiences, error }) {
                       objectFit="contain"
                     />
 
-                    <div className="grid gap-2 flex-1 items-center content-center">
+                    <div className="grid gap-3 flex-1 items-center content-center">
                       <p className="text-sm font-normal leading-none text-neutral-400 flex flex-wrap gap-3 w-full">
                         <time
                           className="capitalize "
@@ -86,7 +93,7 @@ export default function Experiences({ experiences, error }) {
 
                       {element.attributes.projects.data.length > 0 ? (
                         <ItemList>
-                          <p>Projets : </p>
+                          <ItemTitle>Projets : </ItemTitle>
                           {element.attributes.projects.data.map((project) => {
                             return (
                               <Link href={"/project/" + project.id}>
@@ -103,10 +110,21 @@ export default function Experiences({ experiences, error }) {
 
                       {element.attributes.degrees.data.length > 0 ? (
                         <ItemList>
-                          <p>Diplômes : </p>
-                          {element.attributes.degrees.data.map((degree) => {
-                            return <p>{degree.attributes.name}</p>;
-                          })}
+                          <ItemTitle>Diplômes : </ItemTitle>
+                          <ul className="grid items-start flex-1 gap-2 xl:gap-0">
+                            {element.attributes.degrees.data.map((degree) => {
+                              return (
+                                <li className="flex xl:gap-3 flex-col xl:flex-row items-start">
+                                  <p className="font-bold">
+                                    {degree.attributes.name + " "}
+                                  </p>
+                                  <p className="font-light text-neutral-500 italic">
+                                    {degree.attributes.details}
+                                  </p>
+                                </li>
+                              );
+                            })}
+                          </ul>
                         </ItemList>
                       ) : (
                         ""

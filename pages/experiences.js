@@ -18,7 +18,7 @@ const pageTitle = "Expériences";
 const ItemList = tw.div`
 
   flex
-  gap-2
+  gap-3
   align-middle
 
 `;
@@ -57,17 +57,19 @@ export default function Experiences({ experiences, error }) {
                 <li className="mb-10 ml-6 grid gap-1" key={element.id}>
                   <div className="absolute w-4 h-4 bg-indigo-400 rounded-full mt-8 -left-2 border-2 border-indigo-200"></div>
 
-                  <div className="flex gap-5">
-                    <Image
-                      src={
-                        adress +
-                        element.attributes.logo.data.attributes.formats.small
-                          .url
-                      }
-                      width={160}
-                      height={160}
-                      objectFit="contain"
-                    />
+                  <div className="flex gap-5 flex-col xl:flex-row">
+                    <div className="max-w-md">
+                      <Image
+                        src={
+                          adress +
+                          element.attributes.logo.data.attributes.formats.small
+                            .url
+                        }
+                        width={160}
+                        height={160}
+                        objectFit="contain"
+                      />
+                    </div>
 
                     <div className="grid gap-3 flex-1 items-center content-center">
                       <p className="text-sm font-normal leading-none text-neutral-400 flex flex-wrap gap-3 w-full">
@@ -94,15 +96,19 @@ export default function Experiences({ experiences, error }) {
                       {element.attributes.projects.data.length > 0 ? (
                         <ItemList>
                           <ItemTitle>Projets : </ItemTitle>
-                          {element.attributes.projects.data.map((project) => {
-                            return (
-                              <Link href={"/project/" + project.id}>
-                                <ChipButton>
-                                  {project.attributes.title}
-                                </ChipButton>
-                              </Link>
-                            );
-                          })}
+                          <ul className="flex items-start flex-1 gap-2 flex-col md:flex-row">
+                            {element.attributes.projects.data.map((project) => {
+                              return (
+                                <li key={project.id}>
+                                  <Link href={"/project/" + project.id}>
+                                    <ChipButton>
+                                      {project.attributes.title}
+                                    </ChipButton>
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
                         </ItemList>
                       ) : (
                         ""
@@ -111,14 +117,17 @@ export default function Experiences({ experiences, error }) {
                       {element.attributes.degrees.data.length > 0 ? (
                         <ItemList>
                           <ItemTitle>Diplômes : </ItemTitle>
-                          <ul className="grid items-start flex-1 gap-2 xl:gap-0">
+                          <ul className="grid items-start flex-1 gap-2 xl:gap-0 list-disc	">
                             {element.attributes.degrees.data.map((degree) => {
                               return (
-                                <li className="flex xl:gap-3 flex-col xl:flex-row items-start">
+                                <li
+                                  className="flex xl:gap-3 flex-col xl:flex-row items-baseline"
+                                  key={degree.id}
+                                >
                                   <p className="font-bold">
                                     {degree.attributes.name + " "}
                                   </p>
-                                  <p className="font-light text-neutral-500 italic">
+                                  <p className="font-light text-neutral-500 italic text-sm">
                                     {degree.attributes.details}
                                   </p>
                                 </li>
